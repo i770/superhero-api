@@ -19,4 +19,4 @@ if __name__ == '__main__':
         db.init_app(app)  # Initialize the db with the app context
         db.create_all()  # Create tables if they don't exist
         migrate.init_app(app, db)  # Initialize migrations
-    app.run(debug=True, port=5008)  # Run on a different port
+    app.run(debug=True, port=5014)  # Run on a different port
