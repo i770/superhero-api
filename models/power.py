@@ -1,13 +1,15 @@
-from app import db
+from extensions import db
+from models.heropower import HeroPower  # Explicit import
 from sqlalchemy.orm import validates
 
 class Power(db.Model):
     __tablename__ = 'powers'
+    __table_args__ = {'extend_existing': True}
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
-    hero_powers = db.relationship('HeroPower', backref='power', cascade='all, delete-orphan')
+    hero_powers = db.relationship('models.heropower.HeroPower', backref='power', cascade='all, delete-orphan')
 
     @validates('description')
     def validate_description(self, key, description):

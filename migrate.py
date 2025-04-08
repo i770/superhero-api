@@ -1,8 +1,8 @@
-from app import db, app  # Import the app instance
-from flask_migrate import Migrate  # Import Flask-Migrate
+from flask_migrate import Migrate
+from app import app
+from extensions import db
 
-migrate = Migrate(app, db)  # Initialize Flask-Migrate
+migrate = Migrate(app, db)
 
 if __name__ == '__main__':
-    from flask import Flask
-    app.run()
+    app.cli()
